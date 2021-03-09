@@ -51,7 +51,7 @@ public class Distance extends MotorFunctions implements Runnable{
 			Sound.systemSound(false, 3);
 			counter++;  //Lis‰t‰‰n counterin m‰‰r‰‰, aina kun este on niin l‰hell‰, ett‰ se pit‰‰ kiert‰‰
 			System.out.println("Esteit‰ kohdattu " + counter);
-			tiukkaOikea();
+			avoidObstacle();
 		}
 		
 		uss.close();
