@@ -22,8 +22,8 @@ public class ColorSensor implements Runnable{
 
  
 
-    @Override
-    public void run() {
+    
+   
         // TODO Auto-generated method stub
         //Luodaan portti
                 Port s1 = BrickFinder.getLocal().getPort("S1");
@@ -35,7 +35,8 @@ public class ColorSensor implements Runnable{
                 
                 //Äänitiedosto
                  File soundFileEnd = new File("C:/temp/loppu.wav");
-        
+         @Override
+        public void run() {
         while(Data.shouldRun)
         {
             //Haetaan arvot
