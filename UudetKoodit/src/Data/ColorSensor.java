@@ -35,8 +35,9 @@ public class ColorSensor implements Runnable{
                 
                 //Äänitiedosto
                  File soundFileEnd = new File("C:/temp/loppu.wav");
-         @Override
+        @Override
         public void run() {
+        	 
         while(Data.shouldRun)
         {
             //Haetaan arvot
