@@ -30,19 +30,20 @@ public class Motor implements Runnable{
 			e.printStackTrace();
 			}
 			
-			if (Data.range < 0.25) 
+			if (Data.range <= 0.25) 
 			{
-				Data.counter++;
-				motorA.setPower(10); //K‰‰nnyt‰‰n pois viivalta
+
+				Data.counter++; //Kun kohdataan este, counterin m‰‰r‰ kasvaa
+				Sound.systemSound(false, 3); //Soitetaan ‰‰ni, kun kohdataan este
+				motorA.setPower(10);  //K‰‰nnyt‰‰n pois viivalta
 				motorD.setPower(50);
 				Delay.msDelay(1000);
 				motorD.setPower(30);  //Suoristetaan
 				motorA.setPower(50);
 				Delay.msDelay(700);
-				motorD.setPower(30);  //Korjataan viivalle tulokulmaa
-				motorA.backward();
+				motorD.setPower(10);  //Korjataan viivalle tulokulmaa
 				motorA.setPower(30);
-				Delay.msDelay(50);
+				Delay.msDelay(700);
 			}
 			
 			if(Data.colorline > 70) //Jos valkoisella, k‰‰nnyt‰‰n vasemmalle
@@ -76,6 +77,11 @@ public class Motor implements Runnable{
 				motorB.rotate(45);  
 				motorB.rotate(-45);
 				//Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppu‰‰ni
+				Sound.systemSound(false, 3); //Soitetaan ‰‰ni
+				Delay.msDelay(40);
+				Sound.twoBeeps();
+			    Delay.msDelay(40);
+				Sound.systemSound(false, 3);
 				motorB.close();
 				Data.shouldRun = false;
 				

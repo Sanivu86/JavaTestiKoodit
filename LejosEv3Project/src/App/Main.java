@@ -1,5 +1,6 @@
 package App;
 import Data.*;
+import lejos.hardware.Button;
 
 public class Main {
 
@@ -37,6 +38,7 @@ public class Main {
 		ultraThread.start();
 		motorThread.start();
 		
+		Button.waitForAnyPress();
 
 	} //Mainin sulje
 
