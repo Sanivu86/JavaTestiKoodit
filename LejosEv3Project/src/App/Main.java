@@ -36,6 +36,7 @@ public class Main {
 		
 		//Käynnistetään säikeet
 
+		touchThread.start();
 		sensorThread.start();
 		ultraThread.start();
 		motorThread.start();

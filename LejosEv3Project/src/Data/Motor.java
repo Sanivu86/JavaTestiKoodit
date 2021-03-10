@@ -14,7 +14,7 @@ public class Motor implements Runnable{
 	//Luodaan moottorit
 	UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A); //Takaa katsottuna oikean pyörän moottori
 	UnregulatedMotor motorD = new UnregulatedMotor(MotorPort.D);  //Takaa katsottuna vasemman pyörän moottori
-	EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); //Lipun moottori
+	//EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); //Lipun moottori
 	
 	@Override
 	public void run() {
@@ -52,7 +52,7 @@ public class Motor implements Runnable{
 				motorD.backward();
 				motorA.setPower(30);
 				motorD.setPower(30);
-				Delay.msDelay(500);
+				Delay.msDelay(2000);
 			}
 			
 			if(Data.colorline > 70) //Jos valkoisella, käännytään vasemmalle
@@ -78,20 +78,20 @@ public class Motor implements Runnable{
 				motorD.setPower(0);
 				motorA.close();
 				motorD.close();
-				motorB.setSpeed(100);
+				/*motorB.setSpeed(100);
 				motorB.rotate(45);  //lippu pyörii edestakas. Voi pyörittää myös esim 720 eli kaksi kierrosta
 				motorB.rotate(-45);
 				motorB.rotate(45);  
 				motorB.rotate(-45);
 				motorB.rotate(45);  
-				motorB.rotate(-45);
+				motorB.rotate(-45); */
 				//Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppuääni
 				Sound.systemSound(false, 3); //Soitetaan ääni
 				Delay.msDelay(40);
 				Sound.twoBeeps();
 			    Delay.msDelay(40);
 				Sound.systemSound(false, 3);
-				motorB.close();
+				//motorB.close();
 				Data.shouldRun = false;
 				
 			}
