@@ -1,5 +1,6 @@
 package App;
 import Data.*;
+import lejos.hardware.Button;
 
 public class Main {
 
@@ -30,17 +31,21 @@ public class Main {
 		//K‰ynnistet‰‰n s‰ikeet
       
 	    //CountTime();
-		
+
+		//sensorThread.setPriority(8);
+		//ultraThread.setPriority(4);
 		sensorThread.start();
-		sensorThread.setPriority(8);
-		ultraThread.setPriority(4);
 		ultraThread.start();
-		//CountTime();
 		motorThread.start();
 		
+		Button.waitForAnyPress();
 
 	} //Mainin sulje
+<<<<<<< HEAD
 	
 	
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/Sanivu86/JavaTestiKoodit.git
 } //Classin sulje

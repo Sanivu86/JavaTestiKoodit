@@ -10,10 +10,6 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.robotics.SampleProvider;
 
 public class Testaus {
-	
-	
-
-	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
