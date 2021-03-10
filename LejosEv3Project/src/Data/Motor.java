@@ -29,20 +29,22 @@ public class Motor implements Runnable{
 			{
 			e.printStackTrace();
 			}
-			if (Data.range < 0.20) 
+			
+			if (Data.range < 0.25) 
 			{
-				
+				Data.counter++;
 				motorA.setPower(10);
 				motorD.setPower(50);
 				Delay.msDelay(1000);
 				motorD.setPower(30);
 				motorA.setPower(50);
-				Delay.msDelay(500);
+				Delay.msDelay(700);
 				motorD.setPower(30);
 				motorA.backward();
 				motorA.setPower(30);
 				Delay.msDelay(50);
 			}
+			
 			if(Data.colorline > 70) //Jos valkoisella, k‰‰nnyt‰‰n vasemmalle
 			{
 				motorA.setPower(30);
@@ -50,6 +52,7 @@ public class Motor implements Runnable{
 				motorA.forward();
 				motorD.forward();
 			}
+			
 			else if(Data.colorline < 30)  //Jos mustalla
 			{
 				motorA.setPower(10);
@@ -58,6 +61,7 @@ public class Motor implements Runnable{
 				motorD.forward();
 			
 			}
+			
 			else if(Data.currentColor == Color.RED) //Jos v‰ri on punainen, pys‰hdyt‰‰n
 			{
 				motorA.setPower(0);
@@ -71,13 +75,13 @@ public class Motor implements Runnable{
 				motorB.rotate(-45);
 				motorB.rotate(45);  
 				motorB.rotate(-45);
-				Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppu‰‰ni
+				//Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppu‰‰ni
 				motorB.close();
 				Data.shouldRun = false;
 				
 			}
 			
-			else if(Data.colorline < 70 && Data.colorline > 30 && Data.range > 0.20) //Jos ollaan viivalla, menn‰‰n suoraa			
+			else if(Data.colorline < 70 && Data.colorline > 30 && Data.range > 0.25) //Jos ollaan viivalla, menn‰‰n suoraa			
 			{
 				motorA.setPower(30);
 				motorD.setPower(30);
@@ -91,6 +95,7 @@ public class Motor implements Runnable{
 	        tm = System.currentTimeMillis()-tm;
 	        tm=tm/1000;
 	        System.out.println("It has taken time to go around the track " + tm + " second");
+	        System.out.println("Obstacles detected " + Data.counter);
 	    }//Aika sulje
 	} // Run-sulje
     
