@@ -50,7 +50,7 @@ public class Motor implements Runnable{
 				motorA.forward();
 				motorD.forward();
 			}
-			else if(Data.colorline < 40)  //Jos mustalla
+			else if(Data.colorline < 30)  //Jos mustalla
 			{
 				motorA.setPower(10);
 				motorD.setPower(30);
@@ -77,7 +77,7 @@ public class Motor implements Runnable{
 				
 			}
 			
-			else if(Data.colorline < 70 && Data.colorline > 40 && Data.range > 0.20) //Jos ollaan viivalla, menn‰‰n suoraa			
+			else if(Data.colorline < 70 && Data.colorline > 30 && Data.range > 0.20) //Jos ollaan viivalla, menn‰‰n suoraa			
 			{
 				motorA.setPower(30);
 				motorD.setPower(30);
