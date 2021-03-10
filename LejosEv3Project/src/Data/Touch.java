@@ -27,7 +27,7 @@ public class Touch implements Runnable {
 		    
 		}
 		
-		uss.close();
+		sensor.close();
 		
 	}
 	
