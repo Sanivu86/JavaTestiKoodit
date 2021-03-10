@@ -5,6 +5,7 @@ import lejos.robotics.Color;
 public class Data {
 	
 	public static boolean shouldRun = true;
+	public static boolean isTouch = false;
 	public static float range = 100; //Tiedot tulevat UltraSensor-luokasta
 	public static float colorline = 45;
 	public static int colorRed = Color.RED;
