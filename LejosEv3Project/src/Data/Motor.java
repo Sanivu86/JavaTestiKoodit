@@ -15,12 +15,12 @@ public class Motor implements Runnable{
 	UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A); //Takaa katsottuna oikean pyörän moottori
 	UnregulatedMotor motorD = new UnregulatedMotor(MotorPort.D);  //Takaa katsottuna vasemman pyörän moottori
 	EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); //Lipun moottori
-	long tm = System.currentTimeMillis();
-    try {
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
+		long tm = System.currentTimeMillis();
+	    try {
 		while (Data.shouldRun) {
 			try {
 			Thread.sleep(1);
@@ -86,12 +86,14 @@ public class Motor implements Runnable{
 			}
 			
 		} //while-sulje		
+		
+	    } finally {
+	        tm = System.currentTimeMillis()-tm;
+	        tm=tm/1000;
+	        System.out.println("it has taken time to go around the track " + tm + " second");
+	    }//Aika sulje
 	} // Run-sulje
-    } finally {
-        tm = System.currentTimeMillis()-tm;
-        tm=tm/1000;
-        System.out.println("it has taken time to go around the track " + tm + " second");
-    }//Aika sulje
+    
 	
 	   
 	   
