@@ -95,7 +95,4 @@ public class Motor implements Runnable{
 	} // Run-sulje
     
 	
-	   
-	   
-}
 } //Classin sulje

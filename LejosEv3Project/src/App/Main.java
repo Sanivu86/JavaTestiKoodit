@@ -30,8 +30,8 @@ public class Main {
 		//Käynnistetään säikeet
       
 	    //CountTime();
-		ultraThread.start();
 		sensorThread.start();
+		ultraThread.start();
 		//CountTime();
 		motorThread.start();
 		
