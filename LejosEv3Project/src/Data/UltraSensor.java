@@ -15,9 +15,20 @@ public class UltraSensor implements Runnable{
 
 			while(Data.shouldRun)
 			{
+			  //Nukutetaan säie
+			    try
+				{
+				Thread.sleep(1);
+				}
+				catch(InterruptedException e)
+				{
+				e.printStackTrace();
+						
+				}
 				Data.range = uss.getRange();
 				System.out.println("Ultrasensor going");
 			    System.out.println(Data.range);
+
 			}
 			
 			uss.close();

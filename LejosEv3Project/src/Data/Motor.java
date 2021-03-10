@@ -14,7 +14,7 @@ public class Motor implements Runnable{
 	//Luodaan moottorit
 	UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A); //Takaa katsottuna oikean pyörän moottori
 	UnregulatedMotor motorD = new UnregulatedMotor(MotorPort.D);  //Takaa katsottuna vasemman pyörän moottori
-	//EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); //Lipun moottori
+	EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); //Lipun moottori
 	
 	@Override
 	public void run() {
@@ -22,6 +22,8 @@ public class Motor implements Runnable{
 		long tm = System.currentTimeMillis();
 	    try {
 		while (Data.shouldRun) {
+			
+			//Nukutetaan säie
 			try {
 			Thread.sleep(1);
 			} 
@@ -41,7 +43,10 @@ public class Motor implements Runnable{
 				motorD.setPower(30);  //Suoristetaan
 				motorA.setPower(50);
 				Delay.msDelay(700);
-				motorD.setPower(10);  //Korjataan viivalle tulokulmaa
+				motorA.setPower(50);  //Hetki suoraa
+				motorD.setPower(50);
+				Delay.msDelay(1000);
+				motorD.setPower(10);  //Käännytään viivalle takaisin
 				motorA.setPower(30);
 				Delay.msDelay(700);
 			}
@@ -78,13 +83,13 @@ public class Motor implements Runnable{
 				motorD.setPower(0);
 				motorA.close();
 				motorD.close();
-				/*motorB.setSpeed(100);
+				motorB.setSpeed(100);
 				motorB.rotate(45);  //lippu pyörii edestakas. Voi pyörittää myös esim 720 eli kaksi kierrosta
 				motorB.rotate(-45);
 				motorB.rotate(45);  
 				motorB.rotate(-45);
 				motorB.rotate(45);  
-				motorB.rotate(-45); */
+				motorB.rotate(-45); 
 				//Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppuääni
 				Sound.systemSound(false, 3); //Soitetaan ääni
 				Delay.msDelay(40);

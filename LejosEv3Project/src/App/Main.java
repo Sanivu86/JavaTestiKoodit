@@ -30,13 +30,13 @@ public class Main {
 		
 		//Touchin s‰ikeen luonti
 		
-		Touch touch1 = new Touch();
+		//Touch touch1 = new Touch();
 		
-		Thread touchThread = new Thread(touch1);
+		//Thread touchThread = new Thread(touch1);
 		
 		//K‰ynnistet‰‰n s‰ikeet
 
-		touchThread.start();
+		//touchThread.start();
 		sensorThread.start();
 		ultraThread.start();
 		motorThread.start();
