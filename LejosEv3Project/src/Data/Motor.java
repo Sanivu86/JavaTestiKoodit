@@ -46,6 +46,15 @@ public class Motor implements Runnable{
 				Delay.msDelay(700);
 			}
 			
+			if(Data.isTouch)
+			{
+				motorA.backward();
+				motorD.backward();
+				motorA.setPower(30);
+				motorD.setPower(30);
+				Delay.msDelay(500);
+			}
+			
 			if(Data.colorline > 70) //Jos valkoisella, k‰‰nnyt‰‰n vasemmalle
 			{
 				motorA.setPower(30);

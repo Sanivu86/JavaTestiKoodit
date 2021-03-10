@@ -28,12 +28,14 @@ public class Main {
 		Thread motorThread = new Thread(motor1);
 		
 		
+		//Touchin s‰ikeen luonti
+		
+		Touch touch1 = new Touch();
+		
+		Thread touchThread = new Thread(touch1);
+		
 		//K‰ynnistet‰‰n s‰ikeet
-      
-	    //CountTime();
 
-		//sensorThread.setPriority(8);
-		//ultraThread.setPriority(4);
 		sensorThread.start();
 		ultraThread.start();
 		motorThread.start();
@@ -41,11 +43,4 @@ public class Main {
 		Button.waitForAnyPress();
 
 	} //Mainin sulje
-<<<<<<< HEAD
-	
-	
-	
-=======
-
->>>>>>> branch 'master' of https://github.com/Sanivu86/JavaTestiKoodit.git
 } //Classin sulje
