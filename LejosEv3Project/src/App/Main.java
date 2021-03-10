@@ -41,25 +41,6 @@ public class Main {
 
 	} //Mainin sulje
 	
-	/* public static void CountTime()
-    {
-        long tm = System.currentTimeMillis();
-        try {
-            //Tähän tulee metodi minkä aika lasketaan
-        	
-        	Motor motor1 = new Motor();
-    		
-    		Thread motorThread = new Thread(motor1);
-    		
-        	motorThread.start();
-        } finally {
-            tm = System.currentTimeMillis()-tm;
-            tm = tm/1000;
-            System.out.println("it has taken time to go around the track " + tm + " s");
-        }
-	
-    } */
-
 	
 	
 } //Classin sulje
