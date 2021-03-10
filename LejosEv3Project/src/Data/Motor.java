@@ -90,7 +90,7 @@ public class Motor implements Runnable{
 	    } finally {
 	        tm = System.currentTimeMillis()-tm;
 	        tm=tm/1000;
-	        System.out.println("it has taken time to go around the track " + tm + " second");
+	        System.out.println("It has taken time to go around the track " + tm + " second");
 	    }//Aika sulje
 	} // Run-sulje
     
