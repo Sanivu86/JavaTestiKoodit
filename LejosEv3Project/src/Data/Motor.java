@@ -33,13 +33,13 @@ public class Motor implements Runnable{
 			if (Data.range < 0.25) 
 			{
 				Data.counter++;
-				motorA.setPower(10);
+				motorA.setPower(10); //Käännytään pois viivalta
 				motorD.setPower(50);
 				Delay.msDelay(1000);
-				motorD.setPower(30);
+				motorD.setPower(30);  //Suoristetaan
 				motorA.setPower(50);
 				Delay.msDelay(700);
-				motorD.setPower(30);
+				motorD.setPower(30);  //Korjataan viivalle tulokulmaa
 				motorA.backward();
 				motorA.setPower(30);
 				Delay.msDelay(50);
@@ -53,7 +53,7 @@ public class Motor implements Runnable{
 				motorD.forward();
 			}
 			
-			else if(Data.colorline < 30)  //Jos mustalla
+			else if(Data.colorline < 30)  //Jos mustalla, käännytään oikealle
 			{
 				motorA.setPower(10);
 				motorD.setPower(30);
