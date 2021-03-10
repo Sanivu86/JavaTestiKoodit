@@ -30,9 +30,10 @@ public class Motor implements Runnable{
 			e.printStackTrace();
 			}
 			
-			if (Data.range < 0.25) 
+			if (Data.range <= 0.25) 
 			{
-				Data.counter++;
+				Data.counter++; //Kun kohdataan este, counterin määrä kasvaa
+				Sound.systemSound(false, 3); //Soitetaan ääni, kun kohdataan este
 				motorA.setPower(10);
 				motorD.setPower(50);
 				Delay.msDelay(1000);
