@@ -30,7 +30,9 @@ public class Main {
 		//K‰ynnistet‰‰n s‰ikeet
       
 	    //CountTime();
+		
 		sensorThread.start();
+		sensorThread.setPriority(8);
 		ultraThread.start();
 		//CountTime();
 		motorThread.start();
