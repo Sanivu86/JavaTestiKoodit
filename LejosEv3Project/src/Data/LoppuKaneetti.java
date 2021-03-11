@@ -7,19 +7,39 @@ import lejos.hardware.motor.UnregulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
 
-/** 
+/**
  * 
+ * @author Sanna Nieminen-Vuorio
+ * Tämä luokka on tehty ylimääräistä toimintoa varten, jotta pystyttiin näyttämään äänen soitto opettajalle.
+ * Robotti meni jumiin äänitiedoston soitosta,joten emme laittaneet sitä radankiertoon
+ *
  */
-
 public class LoppuKaneetti implements Runnable{
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
+	public void run() {		
 		
-		UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A); //Takaa katsottuna oikean pyörän moottori
-		UnregulatedMotor motorD = new UnregulatedMotor(MotorPort.D);  //Takaa katsottuna vasemman pyörän moottori
-		EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); //Lipun moottori
+		/** Luodaan moottorit
+		 * 
+		 * Takaa katsottuna oikean pyörän moottori
+		 */
+		UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A); 
+		
+		/**Takaa katsottuna vasemman pyörän moottori
+		 * 
+		 */
+		UnregulatedMotor motorD = new UnregulatedMotor(MotorPort.D);  
+		
+		/**Lipun moottori
+		 * 
+		 */
+		EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); 
+		
+		/**
+		 * Robotti kääntyy nopesti 90 astetta vasemmalle, pysähtyy, sulkee pyörien moottorit
+		 * heiluttaa lippua kaksi kertaa edestakaisin, sulkee lipun moottorin ja
+		 * sanoo lopuksi äänitiedoston
+		 */
 		
 		motorA.setPower(80);
 		motorD.setPower(0);
@@ -31,7 +51,7 @@ public class LoppuKaneetti implements Runnable{
 		motorA.close();
 		motorD.close();
 		motorB.setSpeed(100);
-		motorB.rotate(45);  //lippu pyörii edestakas. Voi pyörittää myös esim 720 eli kaksi kierrosta
+		motorB.rotate(45);  
 		motorB.rotate(-45);
 		motorB.rotate(45);  
 		motorB.rotate(-45);
