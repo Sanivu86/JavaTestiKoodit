@@ -28,6 +28,17 @@ public class ColorSensor implements Runnable{
 		
 		while(Data.shouldRun)
 		{
+			//Nukutetaan säie
+			 try
+				{
+					Thread.sleep(1);
+				}
+				catch(InterruptedException e)
+				{
+					e.printStackTrace();
+					
+				}
+			 
 			//Haetaan arvot
 			 colorProvider.fetchSample(colorSample, 0);
 			 
@@ -44,16 +55,6 @@ public class ColorSensor implements Runnable{
 				 System.out.println(Data.currentColor + " on punainen");
 			 }
 			 
-			 //Nukutetaan säie
-			 try
-				{
-					Thread.sleep(1);
-				}
-				catch(InterruptedException e)
-				{
-					e.printStackTrace();
-					
-				}
 			 
 			 //Printti harjoituksiin
 			 System.out.println("Colorsensor going");

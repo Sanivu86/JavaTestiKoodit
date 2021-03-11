@@ -34,33 +34,8 @@ public class Motor implements Runnable{
 			
 			if (Data.range <= 0.25) 
 			{
-				motorA.setPower(Data.SLOWDOWN);  //Hidastetaan
-				motorD.setPower(Data.SLOWDOWN);
-				Data.counter++; //Kun kohdataan este, counterin m‰‰r‰ kasvaa
-				Sound.systemSound(false, 3); //Soitetaan ‰‰ni, kun kohdataan este
-				motorA.setPower(Data.ANOTHERTIREGOSLOWER);  //K‰‰nnyt‰‰n pois viivalta
-				motorD.setPower(Data.ANOTHERTIREGOFASTER);
-				Delay.msDelay(1600);
-				motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
-				motorD.setPower(Data.AVARAGEVELOCITY);
-				Delay.msDelay(1000);
-				motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //Suoristetaan
-				motorA.setPower(Data.ANOTHERTIREGOFASTER);
-				Delay.msDelay(2800);
-				motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
-				motorD.setPower(Data.AVARAGEVELOCITY);
-				Delay.msDelay(2800);
-				motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //K‰‰nnyt‰‰n viivalle takaisin
-				motorA.setPower(Data.ANOTHERTIREGOFASTER);
-				Delay.msDelay(2800);
-				motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
-				motorD.setPower(Data.AVARAGEVELOCITY);
-				Delay.msDelay(1000);
-				motorD.setPower(Data.ANOTHERTIREGOFASTER);  //Korjataan viivalle tuloa
-				motorA.setPower(Data.ANOTHERTIREGOSLOWER);
-				Delay.msDelay(1500);
-				motorA.setPower(Data.SLOWDOWN);
-				motorD.setPower(Data.SLOWDOWN);
+				
+			  obstacle();
 			}
 			
 			if(Data.isTouch)
@@ -74,16 +49,16 @@ public class Motor implements Runnable{
 			
 			if(Data.colorline > 70) //Jos valkoisella, k‰‰nnyt‰‰n vasemmalle
 			{
-				motorA.setPower(30);
-				motorD.setPower(10);
+				motorA.setPower(25);
+				motorD.setPower(0);
 				motorA.forward();
 				motorD.forward();
 			}
 			
 			else if(Data.colorline < 30)  //Jos mustalla, k‰‰nnyt‰‰n oikealle
 			{
-				motorA.setPower(10);
-				motorD.setPower(30);
+				motorA.setPower(0);
+				motorD.setPower(25);
 				motorA.forward();
 				motorD.forward();
 			
@@ -91,32 +66,13 @@ public class Motor implements Runnable{
 			
 			else if(Data.currentColor == Color.RED) //Jos v‰ri on punainen, pys‰hdyt‰‰n
 			{
-				motorA.setPower(0);
-				motorD.setPower(0);
-				motorA.close();
-				motorD.close();
-				motorB.setSpeed(100);
-				motorB.rotate(45);  //lippu pyˆrii edestakas. Voi pyˆritt‰‰ myˆs esim 720 eli kaksi kierrosta
-				motorB.rotate(-45);
-				motorB.rotate(45);  
-				motorB.rotate(-45);
-				motorB.rotate(45);  
-				motorB.rotate(-45); 
-				//Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppu‰‰ni
-				Sound.systemSound(false, 3); //Soitetaan ‰‰ni
-				Delay.msDelay(40);
-				Sound.twoBeeps();
-			    Delay.msDelay(40);
-				Sound.systemSound(false, 3);
-				motorB.close();
-				Data.shouldRun = false;
-				
+				end();
 			}
 			
 			else if(Data.colorline < 70 && Data.colorline > 30 && Data.range > 0.25) //Jos ollaan viivalla, menn‰‰n suoraa			
 			{
-				motorA.setPower(30);
-				motorD.setPower(30);
+				motorA.setPower(20);
+				motorD.setPower(20);
 				motorA.forward();
 				motorD.forward();
 			}
@@ -139,28 +95,51 @@ public class Motor implements Runnable{
 		Sound.systemSound(false, 3); //Soitetaan ‰‰ni, kun kohdataan este
 		motorA.setPower(Data.ANOTHERTIREGOSLOWER);  //K‰‰nnyt‰‰n pois viivalta
 		motorD.setPower(Data.ANOTHERTIREGOFASTER);
-		Delay.msDelay(1600);
-		motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
-		motorD.setPower(Data.AVARAGEVELOCITY);
-		Delay.msDelay(1000);
+		Delay.msDelay(2000);
+		motorA.setPower(Data.SLOWDOWN);  //Hetki suoraa
+		motorD.setPower(Data.SLOWDOWN);
+		Delay.msDelay(3500);
 		motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //Suoristetaan
 		motorA.setPower(Data.ANOTHERTIREGOFASTER);
 		Delay.msDelay(2800);
-		motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
-		motorD.setPower(Data.AVARAGEVELOCITY);
-		Delay.msDelay(2800);
+		motorA.setPower(Data.SLOWDOWN);  //Hetki suoraa
+		motorD.setPower(Data.SLOWDOWN);
+		Delay.msDelay(4000);
 		motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //K‰‰nnyt‰‰n viivalle takaisin
 		motorA.setPower(Data.ANOTHERTIREGOFASTER);
 		Delay.msDelay(2800);
-		motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
-		motorD.setPower(Data.AVARAGEVELOCITY);
-		Delay.msDelay(1200);
+		motorA.setPower(Data.SLOWDOWN);  //Hetki suoraa
+		motorD.setPower(Data.SLOWDOWN);
+		Delay.msDelay(3800);
 		motorD.setPower(Data.ANOTHERTIREGOFASTER);  //Korjataan viivalle tuloa
 		motorA.setPower(Data.ANOTHERTIREGOSLOWER);
-		Delay.msDelay(1500);
+		Delay.msDelay(2000);
 		motorA.setPower(Data.SLOWDOWN);
 		motorD.setPower(Data.SLOWDOWN);
 	}
-    
+	
+	public void end()
+	{
+		motorA.setPower(0);
+		motorD.setPower(0);
+		motorA.close();
+		motorD.close();
+		motorB.setSpeed(100);
+		motorB.rotate(45);  //lippu pyˆrii edestakas. Voi pyˆritt‰‰ myˆs esim 720 eli kaksi kierrosta
+		motorB.rotate(-45);
+		motorB.rotate(45);  
+		motorB.rotate(-45);
+		motorB.rotate(45);  
+		motorB.rotate(-45); 
+		//Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppu‰‰ni
+		Sound.systemSound(false, 3); //Soitetaan ‰‰ni
+		Delay.msDelay(40);
+		Sound.twoBeeps();
+	    Delay.msDelay(40);
+		Sound.systemSound(false, 3);
+		motorB.close();
+		Data.shouldRun = false;
+		
+	}
 	
 } //Classin sulje
