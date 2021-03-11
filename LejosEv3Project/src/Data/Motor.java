@@ -34,12 +34,14 @@ public class Motor implements Runnable{
 			e.printStackTrace();
 			}
 			
+			//Jos esteeseen on matkaa alle 25cm, kutsutaan esteen kiert‰v‰‰ metodia
 			if (Data.range <= 0.25) 
 			{
 				
 			  obstacle();
 			}
 			
+			//Jos robotti koskettaa estett‰, peruutetaan
 			if(Data.isTouch)
 			{
 				motorA.backward();
@@ -81,7 +83,7 @@ public class Motor implements Runnable{
 			
 		} //while-sulje		
 		
-		//Lasketaan radan aika
+		//Lasketaan radan aika ja tulostetaan se, sek‰ esteiden m‰‰r‰
 	    } finally {
 	        tm = System.currentTimeMillis()-tm;
 	        tm=tm/1000;
@@ -90,6 +92,7 @@ public class Motor implements Runnable{
 	    }//Aika sulje
 	} // Run-sulje
 	
+	//Metodi, joka kiert‰‰ esteen
 	public void obstacle()
 	{
 		motorA.setPower(Data.SLOWDOWN);  //Hidastetaan
@@ -121,6 +124,7 @@ public class Motor implements Runnable{
 		motorD.setPower(Data.SLOWDOWN);
 	}
 	
+	//Ohjelman lopetus-metodi. Suljetaan moottorit ja heilutetaan lippua + ‰‰ni
 	public void end()
 	{
 		motorA.setPower(0);
