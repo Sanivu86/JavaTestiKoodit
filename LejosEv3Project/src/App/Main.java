@@ -47,9 +47,9 @@ private String message;
 		//K‰ynnistet‰‰n s‰ikeet
 
 		System.out.println(main.getMessage());
-		colorsensorThread.setPriority(8);
-		ultraThread.setPriority(4);
-		motorThread.setPriority(4);
+		//colorsensorThread.setPriority(8);
+		//ultraThread.setPriority(4);
+		//motorThread.setPriority(4);
 		//touchThread.start();
 		
 		ultraThread.start();

@@ -16,7 +16,7 @@ public class Data {
 	public static final int AVARAGEVELOCITY = 30;
 	public static final int SLOWDOWN = 20;
 	public static final int STOPDRIVING = 0;
-	public static final int ANOTHERTIREGOSLOWER = 8;
+	public static final int ANOTHERTIREGOSLOWER = 5;
 	public static final int ANOTHERTIREGOFASTER= 25;
 
 }

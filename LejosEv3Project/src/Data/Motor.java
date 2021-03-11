@@ -101,25 +101,25 @@ public class Motor implements Runnable{
 		Sound.systemSound(false, 3); //Soitetaan ‰‰ni, kun kohdataan este
 		motorA.setPower(Data.ANOTHERTIREGOSLOWER);  //K‰‰nnyt‰‰n pois viivalta
 		motorD.setPower(Data.ANOTHERTIREGOFASTER);
-		Delay.msDelay(2000);
+		Delay.msDelay(3800);
 		motorA.setPower(Data.SLOWDOWN);  //Hetki suoraa
 		motorD.setPower(Data.SLOWDOWN);
-		Delay.msDelay(3500);
+		Delay.msDelay(3400);
 		motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //Suoristetaan
 		motorA.setPower(Data.ANOTHERTIREGOFASTER);
-		Delay.msDelay(2800);
+		Delay.msDelay(3100);
 		motorA.setPower(Data.SLOWDOWN);  //Hetki suoraa
 		motorD.setPower(Data.SLOWDOWN);
-		Delay.msDelay(4000);
+		Delay.msDelay(3000);
 		motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //K‰‰nnyt‰‰n viivalle takaisin
 		motorA.setPower(Data.ANOTHERTIREGOFASTER);
-		Delay.msDelay(2800);
+		Delay.msDelay(2900);
 		motorA.setPower(Data.SLOWDOWN);  //Hetki suoraa
 		motorD.setPower(Data.SLOWDOWN);
-		Delay.msDelay(3800);
+		Delay.msDelay(2800);
 		motorD.setPower(Data.ANOTHERTIREGOFASTER);  //Korjataan viivalle tuloa
 		motorA.setPower(Data.ANOTHERTIREGOSLOWER);
-		Delay.msDelay(2000);
+		Delay.msDelay(2500);
 		motorA.setPower(Data.SLOWDOWN);
 		motorD.setPower(Data.SLOWDOWN);
 	}
