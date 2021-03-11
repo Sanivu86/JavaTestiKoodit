@@ -1,12 +1,15 @@
 package Data;
 
 import java.io.File;
-
 import lejos.hardware.Sound;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.motor.UnregulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
+
+/** 
+ * 
+ */
 
 public class LoppuKaneetti implements Runnable{
 

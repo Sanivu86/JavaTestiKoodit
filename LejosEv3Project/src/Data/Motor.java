@@ -1,7 +1,5 @@
 package Data;
 
-import java.io.File;
-
 import lejos.hardware.Sound;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.motor.UnregulatedMotor;
@@ -51,32 +49,36 @@ public class Motor implements Runnable{
 				Delay.msDelay(2000);
 			}
 			
-			if(Data.colorline > 70) //Jos valkoisella, k‰‰nnyt‰‰n vasemmalle
+			//Jos valkoisella, k‰‰nnyt‰‰n vasemmalle
+			if(Data.colorline > 70) 
 			{
-				motorA.setPower(25);
-				motorD.setPower(0);
+				motorA.setPower(40);
+				motorD.setPower(10);
 				motorA.forward();
 				motorD.forward();
 			}
 			
-			else if(Data.colorline < 30)  //Jos mustalla, k‰‰nnyt‰‰n oikealle
+			//Jos mustalla, k‰‰nnyt‰‰n oikealle
+			else if(Data.colorline < 30)  
 			{
-				motorA.setPower(0);
-				motorD.setPower(25);
+				motorA.setPower(10);
+				motorD.setPower(40);
 				motorA.forward();
 				motorD.forward();
 			
 			}
 			
-			else if(Data.currentColor == Color.RED) //Jos v‰ri on punainen, pys‰hdyt‰‰n
+			//Jos v‰ri on punainen, pys‰hdyt‰‰n
+			else if(Data.currentColor == Color.RED) 
 			{
 				end();
 			}
 			
-			else if(Data.colorline < 70 && Data.colorline > 30 && Data.range > 0.25) //Jos ollaan viivalla, menn‰‰n suoraa			
+			//Jos ollaan viivalla, menn‰‰n suoraa	
+			else if(Data.colorline < 70 && Data.colorline > 30 && Data.range > 0.25) 		
 			{
-				motorA.setPower(20);
-				motorD.setPower(20);
+				motorA.setPower(40);
+				motorD.setPower(40);
 				motorA.forward();
 				motorD.forward();
 			}
@@ -92,7 +94,7 @@ public class Motor implements Runnable{
 	    }//Aika sulje
 	} // Run-sulje
 	
-	//Metodi, joka kiert‰‰ esteen
+	//Metodi, joka kiert‰‰ esteen ja lis‰‰ estelaskuriin yhden
 	public void obstacle()
 	{
 		motorA.setPower(Data.SLOWDOWN);  //Hidastetaan
@@ -138,7 +140,6 @@ public class Motor implements Runnable{
 		motorB.rotate(-45);
 		motorB.rotate(45);  
 		motorB.rotate(-45); 
-		//Sound.playSample(new File("loppu_1.wav"), 100);  //Soitetaan loppu‰‰ni
 		Sound.systemSound(false, 3); //Soitetaan ‰‰ni
 		Delay.msDelay(40);
 		Sound.twoBeeps();

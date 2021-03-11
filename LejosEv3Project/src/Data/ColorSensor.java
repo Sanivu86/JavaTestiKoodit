@@ -1,12 +1,22 @@
 package Data;
 
-import java.io.File;
-
 import lejos.hardware.BrickFinder;
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.robotics.Color;
 import lejos.robotics.SampleProvider;
+
+/**
+ * 
+ * @author Sanna Nieminen-Vuorio
+ * ColorSensor-luokka k‰skytt‰‰ v‰risensoria. Sensori hakee sek‰ colorId:t‰, ett‰ rgb-arvoja.
+ * ColorId haetaan, jotta robotti osaa pys‰hty‰ punaisella.
+ * Rgb-arvoista otetaan sininen arvo, joka kerrotaan 1000:lla, jotta saadaa helppo arvo vertailuun.
+ * Rgb-arvon mukaan robotti tiet‰‰, onko se liikaa mustalla tai valkoisella vai sopivasti viivalla.
+ * 
+ * Arvot syˆtet‰‰n Data-luokan staattisiin muuttujiin, josta Motor-luokka hakee ne.
+ *
+ */
 
 public class ColorSensor implements Runnable{
 	
@@ -16,19 +26,28 @@ public class ColorSensor implements Runnable{
 	 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		
-		//Luodaan portti
+		/**
+		 * Luodaan portti
+		 */
 		Port s1 = BrickFinder.getLocal().getPort("S1");
 				
-		//Luodaan sensori
+		/**
+		 * Luodaan sensori
+		 */
 		sensor = new EV3ColorSensor(s1);
 		colorProvider = sensor.getRGBMode();
 		float [] colorSample = new float[colorProvider.sampleSize()];
 		
+		/**
+		 * Sensori toimii, kunnes se havaitsee punaista, jolloin Motor-luokka 
+		 * asettaa shouldRun-booleanin falseksi
+		 */
 		while(Data.shouldRun)
 		{
-			//Nukutetaan s‰ie
+			/**
+			 * Nukutetaan s‰ie, jotta muutkin s‰ikeet saavat tilaa
+			 */
 			 try
 				{
 					Thread.sleep(1);
@@ -39,14 +58,20 @@ public class ColorSensor implements Runnable{
 					
 				}
 			 
-			//Haetaan arvot
+			/**Haetaan rgb-arvot
+			 * 
+			 */
 			 colorProvider.fetchSample(colorSample, 0);
 			 
-			 //Tallennetaan sinisen v‰rin arvo saattiseen muuttujaan
+			 /**Tallennetaan sinisen v‰rin arvo * 1000 staattiseen muuttujaan
+			  * 
+			  */
 			 
 			 Data.colorline = colorSample[2]*1000;
 			 
-			 //Tarkistetaan onko punaista v‰ri‰
+			 /**Tarkistetaan colorId:ll‰ onko punaista v‰ri‰
+			  * 
+			  */
 			
 			Data.currentColor = sensor.getColorID();
 			
@@ -56,17 +81,23 @@ public class ColorSensor implements Runnable{
 			 }
 			 
 			 
-			 //Printti harjoituksiin
-			 System.out.println("Colorsensor going");
-			 System.out.println(colorSample[2]*1000);
+			 /**Printattiin testatessa sensorin nime‰ ja rgb-arvoja, 
+			  * jotta n‰htiin s‰ikeen toiminta helposti consolista
+			  * 
+			  * System.out.println("Colorsensor going");
+			  * System.out.println(colorSample[2]*1000);
+			  * 
+			  */
+
 			 
-			 
-			 
-		} //While-sulje
-		
+		} 
+
+		/**
+		 * Kun ohjelma loppuu, suljetaan sensori
+		 */
 		sensor.close();
 
 		
-	} //Run-sulje
+	} 
 
-} // Classin sulje
+} 
