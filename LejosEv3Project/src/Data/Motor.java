@@ -19,6 +19,8 @@ public class Motor implements Runnable{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		
+		//Aloitetaan ajanlasku
 		long tm = System.currentTimeMillis();
 	    try {
 		while (Data.shouldRun) {
@@ -79,6 +81,7 @@ public class Motor implements Runnable{
 			
 		} //while-sulje		
 		
+		//Lasketaan radan aika
 	    } finally {
 	        tm = System.currentTimeMillis()-tm;
 	        tm=tm/1000;
