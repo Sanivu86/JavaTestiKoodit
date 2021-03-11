@@ -34,21 +34,33 @@ public class Motor implements Runnable{
 			
 			if (Data.range <= 0.25) 
 			{
-
+				motorA.setPower(Data.SLOWDOWN);  //Hidastetaan
+				motorD.setPower(Data.SLOWDOWN);
 				Data.counter++; //Kun kohdataan este, counterin määrä kasvaa
 				Sound.systemSound(false, 3); //Soitetaan ääni, kun kohdataan este
-				motorA.setPower(10);  //Käännytään pois viivalta
-				motorD.setPower(50);
+				motorA.setPower(Data.ANOTHERTIREGOSLOWER);  //Käännytään pois viivalta
+				motorD.setPower(Data.ANOTHERTIREGOFASTER);
+				Delay.msDelay(1600);
+				motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
+				motorD.setPower(Data.AVARAGEVELOCITY);
 				Delay.msDelay(1000);
-				motorD.setPower(30);  //Suoristetaan
-				motorA.setPower(50);
-				Delay.msDelay(700);
-				motorA.setPower(50);  //Hetki suoraa
-				motorD.setPower(50);
+				motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //Suoristetaan
+				motorA.setPower(Data.ANOTHERTIREGOFASTER);
+				Delay.msDelay(2800);
+				motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
+				motorD.setPower(Data.AVARAGEVELOCITY);
+				Delay.msDelay(2800);
+				motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //Käännytään viivalle takaisin
+				motorA.setPower(Data.ANOTHERTIREGOFASTER);
+				Delay.msDelay(2800);
+				motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
+				motorD.setPower(Data.AVARAGEVELOCITY);
 				Delay.msDelay(1000);
-				motorD.setPower(10);  //Käännytään viivalle takaisin
-				motorA.setPower(30);
-				Delay.msDelay(700);
+				motorD.setPower(Data.ANOTHERTIREGOFASTER);  //Korjataan viivalle tuloa
+				motorA.setPower(Data.ANOTHERTIREGOSLOWER);
+				Delay.msDelay(1500);
+				motorA.setPower(Data.SLOWDOWN);
+				motorD.setPower(Data.SLOWDOWN);
 			}
 			
 			if(Data.isTouch)
@@ -96,7 +108,7 @@ public class Motor implements Runnable{
 				Sound.twoBeeps();
 			    Delay.msDelay(40);
 				Sound.systemSound(false, 3);
-				//motorB.close();
+				motorB.close();
 				Data.shouldRun = false;
 				
 			}
@@ -118,6 +130,37 @@ public class Motor implements Runnable{
 	        System.out.println("Obstacles detected " + Data.counter);
 	    }//Aika sulje
 	} // Run-sulje
+	
+	public void obstacle()
+	{
+		motorA.setPower(Data.SLOWDOWN);  //Hidastetaan
+		motorD.setPower(Data.SLOWDOWN);
+		Data.counter++; //Kun kohdataan este, counterin määrä kasvaa
+		Sound.systemSound(false, 3); //Soitetaan ääni, kun kohdataan este
+		motorA.setPower(Data.ANOTHERTIREGOSLOWER);  //Käännytään pois viivalta
+		motorD.setPower(Data.ANOTHERTIREGOFASTER);
+		Delay.msDelay(1600);
+		motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
+		motorD.setPower(Data.AVARAGEVELOCITY);
+		Delay.msDelay(1000);
+		motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //Suoristetaan
+		motorA.setPower(Data.ANOTHERTIREGOFASTER);
+		Delay.msDelay(2800);
+		motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
+		motorD.setPower(Data.AVARAGEVELOCITY);
+		Delay.msDelay(2800);
+		motorD.setPower(Data.ANOTHERTIREGOSLOWER);  //Käännytään viivalle takaisin
+		motorA.setPower(Data.ANOTHERTIREGOFASTER);
+		Delay.msDelay(2800);
+		motorA.setPower(Data.AVARAGEVELOCITY);  //Hetki suoraa
+		motorD.setPower(Data.AVARAGEVELOCITY);
+		Delay.msDelay(1200);
+		motorD.setPower(Data.ANOTHERTIREGOFASTER);  //Korjataan viivalle tuloa
+		motorA.setPower(Data.ANOTHERTIREGOSLOWER);
+		Delay.msDelay(1500);
+		motorA.setPower(Data.SLOWDOWN);
+		motorD.setPower(Data.SLOWDOWN);
+	}
     
 	
 } //Classin sulje
