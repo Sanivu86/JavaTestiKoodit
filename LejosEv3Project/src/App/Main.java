@@ -17,9 +17,12 @@ private String message;
 		
 		//Luodaan v‰risensori ja tehd‰‰n s‰ie
 		
-		ColorSensor sensor1 = new ColorSensor();
+		ColorSensor colorsensor1 = new ColorSensor();
 		
-		Thread sensorThread = new Thread(sensor1);
+		Thread colorsensorThread = new Thread(colorsensor1);
+		
+		colorsensorThread.start();
+		Delay.msDelay(2000);
 		
 		//Tehd‰‰n ultra‰‰nisensori ja siit‰ s‰ie
 		
@@ -44,12 +47,11 @@ private String message;
 		//K‰ynnistet‰‰n s‰ikeet
 
 		System.out.println(main.getMessage());
-		sensorThread.setPriority(8);
+		colorsensorThread.setPriority(8);
 		ultraThread.setPriority(4);
 		motorThread.setPriority(4);
 		//touchThread.start();
-		sensorThread.start();
-		Delay.msDelay(2000);
+		
 		ultraThread.start();
 		motorThread.start();
 		
@@ -65,9 +67,9 @@ private String message;
 
 	//Estet‰‰n ohjelmoijaa laittamasta rumia viestej‰ k‰ytt‰j‰lle
 	public void setMessage(String message) {
-		if(message.contains("vittu") || message.contains("Vittu") || message.contains("Vitun") || message.contains("vitun"))
+		if(message.contains("Tyhm‰") || message.contains("tyhm‰") || message.contains("Idiot") || message.contains("idiot"))
 		{
-			this.message = "Ohjelmoija yritt‰‰ puhua rumia sinulle";
+			this.message = "Ohjelmoija yritt‰‰ haukkua sinua";
 		}
 		
 		else
