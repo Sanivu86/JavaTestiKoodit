@@ -59,19 +59,19 @@ public class ColorSensor implements Runnable{
 					
 				}
 			 
-			/**Haetaan rgb-arvot
-			 * 
+			/**
+			 * Haetaan rgb-arvot
 			 */
 			 colorProvider.fetchSample(colorSample, 0);
 			 
-			 /**Tallennetaan sinisen värin arvo * 1000 staattiseen muuttujaan
-			  * 
+			 /**
+			  * Tallennetaan sinisen värin arvo * 1000 staattiseen muuttujaan
 			  */
 			 
 			 Data.colorline = colorSample[2]*1000;
 			 
-			 /**Tarkistetaan colorId:llä onko punaista väriä
-			  * 
+			 /**
+			  * Tarkistetaan colorId:llä onko punaista väriä
 			  */
 			
 			Data.currentColor = sensor.getColorID();
@@ -82,7 +82,8 @@ public class ColorSensor implements Runnable{
 			 }
 			 
 			 
-			 /**Printattiin testatessa sensorin nimeä ja rgb-arvoja, 
+			 /**
+			  * Printattiin testatessa sensorin nimeä ja rgb-arvoja, 
 			  * jotta nähtiin säikeen toiminta helposti consolista
 			  * 
 			  * System.out.println("Colorsensor going");

@@ -25,13 +25,13 @@ public class LoppuKaneetti implements Runnable{
 		 */
 		UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A); 
 		
-		/**Takaa katsottuna vasemman pyörän moottori
-		 * 
+		/**
+		 * Takaa katsottuna vasemman pyörän moottori
 		 */
 		UnregulatedMotor motorD = new UnregulatedMotor(MotorPort.D);  
 		
-		/**Lipun moottori
-		 * 
+		/**
+		 * Lipun moottori
 		 */
 		EV3MediumRegulatedMotor motorB = new EV3MediumRegulatedMotor(MotorPort.B); 
 		
