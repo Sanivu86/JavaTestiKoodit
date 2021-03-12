@@ -4,6 +4,12 @@ package Data;
 	import lejos.hardware.sensor.EV3UltrasonicSensor;
 	import lejos.robotics.RangeFinder;
 	import lejos.robotics.SampleProvider;
+	
+	/**
+	 * @author Jenni Lehtonen
+	 * T‰m‰ luokka sis‰lt‰‰ ultra‰‰nisensorille tarkoitettuja metodeja. Robotin ultra‰‰nisensori k‰ytt‰‰ getRange-metodia
+	 * et‰isyyden mittaamiseksi. T‰m‰ tiedosto on haettu internetist‰.
+	 */
 
 	public class UltraSonicSensor implements RangeFinder
 	{
