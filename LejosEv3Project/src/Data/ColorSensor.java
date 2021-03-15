@@ -9,7 +9,7 @@ import lejos.robotics.SampleProvider;
 /**
  * 
  * @author Sanna Nieminen-Vuorio
- * ColorSensor-luokka k‰skytt‰‰ v‰risensoria. Luokka k‰ytt‰‰ Runnable-metodia, jotta siit‰ voidaan tehd‰ Main-luokassa s‰ie.
+ * ColorSensor-luokka k‰skytt‰‰ v‰risensoria. Luokka k‰ytt‰‰ Runnable-rajapintaa, jotta siit‰ voidaan tehd‰ Main-luokassa s‰ie.
  * Sensori hakee sek‰ colorId:t‰, ett‰ rgb-arvoja.
  * ColorId haetaan, jotta robotti osaa pys‰hty‰ punaisella.
  * Rgb-arvoista otetaan sininen arvo, joka kerrotaan 1000:lla, jotta saadaa helppo arvo vertailuun.
