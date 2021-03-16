@@ -24,7 +24,7 @@ private String message;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/**
-		 * Kirjoitetaan k‰ytt‰j‰lle viesti, jota k‰ytet‰‰n lopussa
+		 * Kirjoitetaan k‰ytt‰j‰lle viesti, kun robotti menee p‰‰lle
 		 */
 		
 		Main main = new Main();
