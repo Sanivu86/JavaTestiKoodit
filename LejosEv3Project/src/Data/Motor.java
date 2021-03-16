@@ -7,6 +7,15 @@ import lejos.hardware.port.MotorPort;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
 
+/**
+ * 
+ * @author Alina Rouvinen, Jenni Lehtonen, Liisa Vuorenmaa, Sanna Nieminen-Vuorio
+ * 
+ * Luokka ohjaa moottoreiden toimintaa. Luokka hakee sensoreiden välittämät arvot
+ * Data-luokasta ja suorittaa toimintoja niiden mukaan.
+ *
+ */
+
 public class Motor implements Runnable{
 
 		 /**
@@ -45,7 +54,7 @@ public class Motor implements Runnable{
 				e.printStackTrace();
 				}
 				/**
-				* Esteenkierto-metodin kutsuminen, kun esteeseen alle 25cm
+				* Esteenkierto-metodin kutsuminen, kun esteeseen 25cm tai alle
 				*/
 				if (Data.range <= 0.25)
 				{
@@ -103,7 +112,8 @@ public class Motor implements Runnable{
 				}
 				}
 				/**
-				* Ohjelma laskee ja tulostaa lopullisen radan suorittamiseen käytetyn ajan sekä ilmoittaa radan aikana havaittujen esteiden määrän
+				* Ohjelma laskee ja tulostaa lopullisen radan suorittamiseen käytetyn ajan 
+				* sekä ilmoittaa radan aikana havaittujen esteiden määrän
 				*/
 				} finally {
 					tm = System.currentTimeMillis()-tm;
@@ -180,14 +190,17 @@ public class Motor implements Runnable{
 		*/
 		public void end()
 		{
+			/**
+			 * Suljetaan pyörien moottorit
+			 */
 			motorA.setPower(0);
 			motorD.setPower(0);
 			motorA.close();
 			motorD.close();
-			motorB.setSpeed(100);
 			/**
 			* Lippu pyörii edestakas
 			*/
+			motorB.setSpeed(100);
 			motorB.rotate(45);
 			motorB.rotate(-45);
 			motorB.rotate(45);
@@ -203,6 +216,10 @@ public class Motor implements Runnable{
 			Delay.msDelay(40);
 			Sound.systemSound(false, 3);
 			motorB.close();
+			/**
+			 * Asetetaan staattinen shouldRun-boolean falseksi, jolloin tämän ja muiden luokkien 
+			 *  while-loopit loppuvat
+			 */
 			Data.shouldRun = false;
 		}
 }
