@@ -12,7 +12,7 @@ public class Main {
 
 	
 /**
- * @author liisa, Sanna, Jenni, Alina
+ * @author Liisa, Sanna, Jenni, Alina
  */
 
 	/**
