@@ -35,7 +35,7 @@ public class Data {
 	public static int counter = 0; 
 	
 	/**
-	 * Robotin renkaiden nopeudet eri tilanteissa:
+	 * Robotin renkaiden nopeudet eri tilanteissa vakimuuttujissa:
 	 */
 	public static final int AVARAGEVELOCITY = 30;
 	public static final int SLOWDOWN = 20;
