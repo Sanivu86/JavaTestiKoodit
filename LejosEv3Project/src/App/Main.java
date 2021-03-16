@@ -24,7 +24,7 @@ private String message;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/**
-		 * Kirjoitetaan k‰ytt‰j‰lle viesti, kun robotti menee p‰‰lle
+		 * Kirjoitetaan k‰ytt‰j‰lle viesti, kun robotti l‰htee liikkeelle
 		 */
 		
 		Main main = new Main();
@@ -33,22 +33,22 @@ private String message;
 		/**
 		 * Luodaan v‰risensori ja tehd‰‰n s‰ie
 		 */
-		
-		
-		
+
 		ColorSensor colorsensor1 = new ColorSensor();
 		
 		Thread colorsensorThread = new Thread(colorsensor1);
 		
+		/**
+		 * V‰risensori laitetaan ensin p‰‰lle ja odotetaan hetki, 
+		 * jotta se varmasti tunnistaa v‰rit ennen kuin robotti l‰htee liikkeelle
+		 */
 		colorsensorThread.start();
 		Delay.msDelay(2000);
 		
 		/**
 		 * Tehd‰‰n ultra‰‰nisensori ja siit‰ s‰ie
 		 */
-		
-		
-		
+
 		UltraSensor ultraSensor = new UltraSensor();
 		
 		Thread ultraThread = new Thread(ultraSensor);
@@ -56,8 +56,7 @@ private String message;
 		/**
 		 * Moottori s‰ikeen luonti
 		 */
-		
-		
+
 		Motor motor1 = new Motor();
 		
 		Thread motorThread = new Thread(motor1);
@@ -65,7 +64,6 @@ private String message;
 		/**
 		 * Touchin s‰ikeen luonti
 		 */
-		
 		
 		Touch touch1 = new Touch();
 		
@@ -80,7 +78,7 @@ private String message;
 		
 		/**
 		 * Asetetaan s‰ikeille prioriteetit ja
-		 * K‰ynnistet‰‰n s‰ikeet
+		 * K‰ynnistet‰‰n loput s‰ikeet
 		 */
 		
 		colorsensorThread.setPriority(8);
