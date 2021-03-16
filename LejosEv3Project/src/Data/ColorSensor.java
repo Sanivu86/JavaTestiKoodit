@@ -9,7 +9,8 @@ import lejos.robotics.SampleProvider;
 /**
  * 
  * @author Sanna Nieminen-Vuorio
- * ColorSensor-luokka k‰skytt‰‰ v‰risensoria. Luokka k‰ytt‰‰ Runnable-rajapintaa, jotta siit‰ voidaan tehd‰ Main-luokassa s‰ie.
+ * ColorSensor-luokka k‰skytt‰‰ v‰risensoria. Luokka k‰ytt‰‰ Runnable-rajapintaa, 
+ * jotta siit‰ voidaan tehd‰ Main-luokassa s‰ie.
  * Sensori hakee sek‰ colorId:t‰, ett‰ rgb-arvoja.
  * ColorId haetaan, jotta robotti osaa pys‰hty‰ punaisella.
  * Rgb-arvoista otetaan sininen arvo, joka kerrotaan 1000:lla, jotta saadaa helppo arvo vertailuun.
@@ -34,7 +35,7 @@ public class ColorSensor implements Runnable{
 		Port s1 = BrickFinder.getLocal().getPort("S1");
 				
 		/**
-		 * Luodaan sensori
+		 * Luodaan sensori ja taulukko rgb-v‰reille
 		 */
 		sensor = new EV3ColorSensor(s1);
 		colorProvider = sensor.getRGBMode();
@@ -71,27 +72,24 @@ public class ColorSensor implements Runnable{
 			 Data.colorline = colorSample[2]*1000;
 			 
 			 /**
-			  * Tarkistetaan colorId:ll‰ onko punaista v‰ri‰
+			  * Asetetaan staattiseen muuttujaan v‰rin ID, jonka sensori hakee
 			  */
 			
 			Data.currentColor = sensor.getColorID();
-			
-			if(Data.currentColor == Color.RED)
-			 {
-				 System.out.println(Data.currentColor + " on punainen");
-			 }
-			 
-			 
+
 			 /**
 			  * Printattiin testatessa sensorin nime‰ ja rgb-arvoja, 
-			  * jotta n‰htiin s‰ikeen toiminta helposti consolista
+			  * jotta n‰htiin s‰ikeen toiminta helposti consolista 
+			  * sek‰ jos v‰ri on punainen printataan sekin
 			  * 
+			  * if(Data.currentColor == Color.RED)
+			  *{
+			  *	 System.out.println(Data.currentColor + " on punainen");
+			  *}
 			  * System.out.println("Colorsensor going");
 			  * System.out.println(colorSample[2]*1000);
 			  * 
 			  */
-
-			 
 		} 
 
 		/**
