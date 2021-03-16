@@ -6,11 +6,11 @@ import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.SampleProvider;
 /**
- * @author liisa
+ * @author Liisa
  * T‰m‰ luokka komentaa Touch- sensoria, luokka k‰ytt‰‰ runnable rajapintaa ja sis‰lt‰‰ run- metodin ja isTouched-metodin
  * Touch- sensori saa arvot Data-luokan stattisesta muuttujasta isTouch
  * Touch- sensoriin liittyv‰ toiminto asetetaan moottoriluokasta
- * Touch- sensoria k‰ytet‰‰n s‰ikeen‰
+ * Touch- sensoria k‰ytet‰‰n s‰ikeen‰ main-luokassa
  */
 public class Touch implements Runnable {
 
@@ -27,7 +27,8 @@ public class Touch implements Runnable {
 		sensor = new EV3TouchSensor(SensorPort.S3);
 		sp = sensor.getTouchMode();
 		/**
-		 * While- Looppi touch- sensorin k‰ynniss‰ pit‰miseen, jossa k‰ytet‰‰n ehtona Data-luokan shouldRun muuttujaa ja kutsutaan isTouched- metodia.
+		 * While- Looppi touch- sensorin k‰ynniss‰ pit‰miseen, 
+		 * jossa k‰ytet‰‰n ehtona Data-luokan shouldRun muuttujaa ja kutsutaan isTouched- metodia.
 		 */
 		while(Data.shouldRun)
 		{
