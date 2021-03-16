@@ -42,7 +42,8 @@ public class UltraSensor implements Runnable{
 			     * Haetaan ultraäänisensorin mittaama etäisyys ja talletetaan se Data-luokassa olevaan range-muuttujaan.
 			     */
 				Data.range = uss.getRange();
-				/**Kehitystyön aikana tulostettiin jokaisessa säikeessä, mikä säie on toiminnassa, jotta nähtiin, miten
+				/**
+				 * Kehitystyön aikana tulostettiin jokaisessa säikeessä, mikä säie on toiminnassa, jotta nähtiin, miten
 				 * säikeet vuorottelevat keskenään ja miten ohjelma toimii. Ultraäänipään säie tulosti siis "Ultrasensor going"
 				 * ja sen lisäksi se tulosti ultraäänisensorin mittaaman etäisyyden, jotta näimme, että mittaus toimii oikein.
 				 * 
